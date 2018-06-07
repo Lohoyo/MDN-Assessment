@@ -1,0 +1,23 @@
+html {
+  font-family: sans-serif;
+}
+
+/* Your CSS below here */
+
+p {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  line-height: 124px;
+  /* 17.6/16=1.1 */
+  font-size: 1.1rem;
+  background-color: yellow;
+  color: yellow;
+  text-shadow: 2px 2px 1px black;
+  border-radius: 25px;
+  border: orange solid 1px;
+  background-image: linear-gradient(to bottom right,rgba(0,0,0,0), rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.2));    
+  box-shadow: 5px 5px 3px black,
+              inset 5px 5px 3px rgba(255, 255, 255, 0.5),
+              inset -5px -5px 3px rgba(0, 0, 0, 0.5);
+}
