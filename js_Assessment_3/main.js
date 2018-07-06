@@ -1,4 +1,4 @@
-// setup canvas
+// 设置canvas
 
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
@@ -6,7 +6,7 @@ var ctx = canvas.getContext('2d');
 var width = canvas.width = window.innerWidth;
 var height = canvas.height = window.innerHeight;
 
-// function to generate random number
+// 随机数生成器
 
 function random(min,max) {
   var num = Math.floor(Math.random()*(max-min)) + min;
@@ -30,8 +30,8 @@ function Ball(x, y, velX, velY, exists, color, size) {
   this.color = color;
   this.size = size;
 }
-Ball.prototype = Object.create(Shape.prototype);  //有什么用？
-Ball.prototype.constructor = Ball;  //有什么用？
+Ball.prototype = Object.create(Shape.prototype);  
+Ball.prototype.constructor = Ball;  
 
 Ball.prototype.draw = function() {
   ctx.beginPath();
@@ -148,11 +148,11 @@ EvilCircle.prototype.collisionDetect = function() {
 
 
 
-// define array to store balls
+// 用于存储球的数组
 
 var balls = [];
 
-// define loop that keeps drawing the scene constantly
+// 不断地绘制屏幕的循环
 
 var evil = new EvilCircle(random(0,width), random(0,height), true);
 evil.setControls();
@@ -160,15 +160,14 @@ evil.setControls();
 var p = document.querySelector('p');
 
 function loop() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
   ctx.fillRect(0, 0, width, height);
 
   
   while (balls.length < 25) {
       var size = random(10,20);
       var ball = new Ball(
-      // ball position always drawn at least one ball width
-      // away from the adge of the canvas, to avoid drawing errors
+      // 球的初始位置至少要离边界半个球远，以避免发生错误
       random(0 + size,width - size),
       random(0 + size,height - size),
       random(-7,7),
@@ -191,7 +190,7 @@ function loop() {
     }
   }
 
-  p.textContent = 'Ball count: ' + count;
+  p.textContent = '球的剩余个数：' + count;
 
   evil.draw();
   evil.checkBounds();
